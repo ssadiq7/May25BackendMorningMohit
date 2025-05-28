@@ -4,7 +4,7 @@ public class Client {
     public static void main(String[] args) {
         System.out.println("Hello World!");
 
-        Student student1 = new Student();
+        Student student1 = new Student("John");
         // default is accessible outside the class
         // but within the same package
         student1.id = 1;
@@ -15,11 +15,12 @@ public class Client {
         student1.setSalary(1000);
         int sal = student1.getSalary();
 
-        Student student2 = new Student();
+        Student student2 = new Student("Jane");
         student2.id = 2;
         student2.name = "Jane Dol";
         student2.age = 26;
 
+        Student student3 = new Student("Rohit", 5000000);
         System.out.println(student1);
         System.out.println(student1.name);
     }

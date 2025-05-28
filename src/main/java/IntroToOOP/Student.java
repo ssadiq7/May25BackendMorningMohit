@@ -7,6 +7,28 @@ public class Student {
    protected int age;
    private int salary;
 
+   public Student(String newName){
+        id = 0;
+        name = newName;
+        age = 21;
+        salary = 5000;
+   }
+
+   public Student(String newName, int newSalary){
+        id = 0;
+        name = newName;
+        salary = newSalary;
+        age = 21;
+   }
+
+   public Student(int newId, String newName ,int newAge, int newSalary){
+       id = newId;
+       name = newName;
+       age = newAge;
+       salary = newSalary;
+   }
+
+
    public int getSalary(){
        return salary;
    }

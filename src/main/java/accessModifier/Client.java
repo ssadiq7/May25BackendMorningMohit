@@ -4,7 +4,7 @@ import IntroToOOP.Student;
 
 public class Client {
     public static void main(String[] args) {
-        Student student = new Student();
+        Student student = new Student("Mohit");
 //        student.salary = 5000;
         // default can't be accessed anywhere outside the package
 //        student.id = 5;
