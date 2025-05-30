@@ -6,6 +6,8 @@ public class Student {
    public String name;
    protected int age;
    private int salary;
+   private Exam enrollmentExam;
+   private Batch batch;
 
    public Student(){
    }
@@ -15,6 +17,7 @@ public class Student {
         name = newName;
         age = 21;
         salary = 5000;
+        enrollmentExam = new Exam(1 , 0);
    }
 
    public Student(String newName, int newSalary){
@@ -22,6 +25,7 @@ public class Student {
         name = newName;
         salary = newSalary;
         age = 21;
+        enrollmentExam = new Exam(1 , 0);
    }
 
    public Student(int newId, String newName ,int newAge, int newSalary){
@@ -29,6 +33,7 @@ public class Student {
        name = newName;
        age = newAge;
        salary = newSalary;
+       enrollmentExam = new Exam(1 , 0);
    }
 
    public Student(Student original){
@@ -36,6 +41,12 @@ public class Student {
         name = original.name;
         age = original.age;
         salary = original.salary;
+        // it will not create a new exam object
+        enrollmentExam = original.enrollmentExam;
+        enrollmentExam = new Exam(original.enrollmentExam);
+
+        // refVariable = refVariable2; => this will not create a new object
+
    }
 
    public int getSalary(){

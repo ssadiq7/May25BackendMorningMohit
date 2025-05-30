@@ -37,7 +37,7 @@ public class Client {
 
         Student stCopy2 = new Student(student1);
 
-
+        System.out.println("");
     }
 }
 
