@@ -7,6 +7,9 @@ public class Student {
    protected int age;
    private int salary;
 
+   public Student(){
+   }
+
    public Student(String newName){
         id = 0;
         name = newName;
@@ -28,6 +31,12 @@ public class Student {
        salary = newSalary;
    }
 
+   public Student(Student original){
+        id = original.id;
+        name = original.name;
+        age = original.age;
+        salary = original.salary;
+   }
 
    public int getSalary(){
        return salary;

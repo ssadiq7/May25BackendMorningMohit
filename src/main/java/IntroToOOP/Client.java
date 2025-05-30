@@ -23,6 +23,21 @@ public class Client {
         Student student3 = new Student("Rohit", 5000000);
         System.out.println(student1);
         System.out.println(student1.name);
+
+        // create a copy : Method 1
+
+        Student stCopy = new Student();
+        stCopy.id = student1.id;
+        stCopy.name = student1.name;
+        stCopy.age = student1.age;
+//        stCopy.salary = student1.salary;
+        stCopy.setSalary(student1.getSalary());
+
+        // Method 2 : Copy constructor
+
+        Student stCopy2 = new Student(student1);
+
+
     }
 }
 
