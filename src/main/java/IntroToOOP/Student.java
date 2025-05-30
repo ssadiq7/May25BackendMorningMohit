@@ -42,8 +42,11 @@ public class Student {
         age = original.age;
         salary = original.salary;
         // it will not create a new exam object
-        enrollmentExam = original.enrollmentExam;
+//        enrollmentExam = original.enrollmentExam;
+       // deep copy
         enrollmentExam = new Exam(original.enrollmentExam);
+        // shallow copy
+        batch = original.batch;
 
         // refVariable = refVariable2; => this will not create a new object
 
