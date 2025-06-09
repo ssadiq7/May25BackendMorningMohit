@@ -8,6 +8,9 @@ public class NumberPrinter implements Runnable{
     }
 
     void print(){
+//        if(noToPrint == 50){
+//            throw new RuntimeException("Faltu ka error! " + Thread.currentThread().getName());
+//        }
         System.out.println("Printing number: " + noToPrint + " in Thread : " + Thread.currentThread().getName());
     }
     @Override
