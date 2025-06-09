@@ -9,6 +9,14 @@ public class Client {
         Thread t = new Thread(helloWorldPrinter);
         t.start(); // internally it calls obj.run()
         System.out.println("After creating the thread in " + Thread.currentThread().getName());
+
+        for(int i = 1; i <= 100; i++){
+            NumberPrinter numberPrinter = new NumberPrinter(i);
+            Thread thread = new Thread(numberPrinter);
+            thread.start();
+        }
+
+
     }
 }
 
