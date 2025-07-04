@@ -1,4 +1,4 @@
-package DesignPrinciplesAndPatterns.SOLID.BirdV3;
+package DesignPrinciplesAndPatterns.SOLID.BirdV4;
 
 public class Peacock extends Bird implements Flyable {
     @Override
