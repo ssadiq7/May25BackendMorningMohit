@@ -4,13 +4,14 @@ import InheritanceAndConstructors.A;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class StreamsClient {
     public static void main(String[] args) {
-        List<Integer> list = List.of(2, 7, 3, 4, 6, 6, 10, 1, 9, 8, 9, 12);
+        List<Integer> list = List.of(13 , 2, 7, 3, 4, 6, 6, 10, 1, 9, 8, 9, 12);
 
         // filter out the odd elements , only keep the even elements
         List<Integer> evenList = new ArrayList<>();
@@ -78,5 +79,26 @@ public class StreamsClient {
                         .collect(Collectors.toList());
 
         System.out.println(finalOutput2);
+
+
+        System.out.println("********* Advantage *************");
+
+        Optional<Integer> ans =
+                    list
+                        .stream()
+                        .filter((element) -> {
+                            System.out.println("Filtering : " + element);
+                            if(element % 2 == 0) { return true; }
+                            return false;
+                        })
+                        .map((element) -> {
+                            System.out.println("Mapping : " + element);
+                            return element * element;
+                        })
+                            .distinct()
+                        .findFirst();
+
+        if(ans.isPresent()) {}
+        System.out.println(ans.get());
     }
 }
