@@ -28,7 +28,6 @@ public class Client {
 
 //        SoldItem soldItem = new SoldItem(soldItemBuilder);
 
-
     }
 }
 
