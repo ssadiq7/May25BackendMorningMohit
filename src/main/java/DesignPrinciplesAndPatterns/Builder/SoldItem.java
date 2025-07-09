@@ -21,6 +21,11 @@ public class SoldItem {
         this.paymentMethod = soldItemBuilder.getPaymentMethod();
     }
 
+    // Original class is taking the responsbility of providing the builder
+    public static SoldItemBuilder getBuilder(){
+        return new SoldItemBuilder();
+    }
+
     public double getDiscount() {
         return discount;
     }

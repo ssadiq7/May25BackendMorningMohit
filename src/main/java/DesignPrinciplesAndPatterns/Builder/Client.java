@@ -7,15 +7,45 @@ public class Client {
         // Way 3 : Using a HashMap
         // Way 4 : Using another custom class to take input on behalf of original class
 
-        SoldItemBuilder soldItemBuilder = new SoldItemBuilder();
-        soldItemBuilder.setId(1);
-        soldItemBuilder.setName("SomeItem");
-        soldItemBuilder.setPrice(100);
-        soldItemBuilder.setQuantity(10);
-        soldItemBuilder.setDiscount(.2);
-        soldItemBuilder.setPrime(true);
+//        SoldItemBuilder soldItemBuilder = new SoldItemBuilder();
+        SoldItem soldItem =
+                SoldItem
+                        .getBuilder()
+                        .setId(1)
+                        .setName("SoldItem")
+                        .setPrice(100)
+                        .setQuantity(10)
+                        .setDiscount(0.2)
+                        .setPrime(true)
+                        .build();
 
-        SoldItem soldItem = new SoldItem(soldItemBuilder);
+//        soldItemBuilder.setId(1);
+//        soldItemBuilder.setName("SomeItem");
+//        soldItemBuilder.setPrice(100);
+//        soldItemBuilder.setQuantity(10);
+//        soldItemBuilder.setDiscount(.2);
+//        soldItemBuilder.setPrime(true);
+
+//        SoldItem soldItem = new SoldItem(soldItemBuilder);
+
 
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
