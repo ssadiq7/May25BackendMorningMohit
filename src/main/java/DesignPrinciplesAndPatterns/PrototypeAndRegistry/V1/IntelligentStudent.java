@@ -1,4 +1,4 @@
-package DesignPrinciplesAndPatterns.PrototypeAndRegistry.V0;
+package DesignPrinciplesAndPatterns.PrototypeAndRegistry.V1;
 
 public class IntelligentStudent extends Student {
     private int iq;
@@ -11,6 +11,19 @@ public class IntelligentStudent extends Student {
     public IntelligentStudent(IntelligentStudent student) {
         super(student);
         this.iq = student.iq;
+    }
+
+    @Override
+    public IntelligentStudent copy() {
+        return new IntelligentStudent(this);
+    }
+
+    // Getters and Setters
+    public int getIq() {
+        return iq;
+    }
+    public void setIq(int iq) {
+        this.iq = iq;
     }
 
 }

@@ -1,4 +1,4 @@
-package DesignPrinciplesAndPatterns.PrototypeAndRegistry.V2;
+package DesignPrinciplesAndPatterns.PrototypeAndRegistry.V3;
 
 public class Client {
     public static void main(String[] args) {

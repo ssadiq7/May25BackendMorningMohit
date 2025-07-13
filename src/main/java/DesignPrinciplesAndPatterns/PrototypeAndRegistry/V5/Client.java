@@ -1,4 +1,4 @@
-package DesignPrinciplesAndPatterns.PrototypeAndRegistry.V4;
+package DesignPrinciplesAndPatterns.PrototypeAndRegistry.V5;
 
 public class Client {
     public static void main(String[] args) {
@@ -48,8 +48,18 @@ public class Client {
 
         // Using Registry to create new students
         StudentRegistry studentRegistry = new StudentRegistry();
-        Student student5 = studentRegistry.get("DataScienceStudent");
+        Student student5 = studentRegistry.get(StudentType.DATASCIENCE);
+        Student student6 = studentRegistry.get(StudentType.DEVOPS);
+        Student student7 = studentRegistry.get(StudentType.ACADEMIC);
+        Student student8 = studentRegistry.get(StudentType.SOFTWARE);
+        // This is prototype and registry pattern in action.
 
-        // To make it better we can use ENUM
+        // Registry is a place where we can store templates of objects
+        // For example, SpringBoot create objects of various classes and store them in a registry
+        // and whenever we need an object of that class, it creates a new object based on the template stored in the registry.
+        System.out.println("Student 5: " + student5.getName() + ", Course: " + student5.getCourse());
+        System.out.println("Student 6: " + student6.getName() + ", Course: " + student6.getCourse());
+        System.out.println("Student 7: " + student7.getName() + ", Course: " + student7.getCourse());
+        System.out.println("Student 8: " + student8.getName() + ", Course: " + student8.getCourse());
     }
 }

@@ -1,4 +1,4 @@
-package DesignPrinciplesAndPatterns.PrototypeAndRegistry.V0;
+package DesignPrinciplesAndPatterns.PrototypeAndRegistry.V1;
 
 public class Client {
     public static void main(String[] args) {
@@ -10,5 +10,10 @@ public class Client {
         IntelligentStudent isCopy = new IntelligentStudent(is);
         // Because we know which class they belong to, we have used the correct copy constructor.
         // What if we do not know which class they belong to?
+
+        Student st1 = st.copy();
+        System.out.println(st1.getName());
+        st1 = is.copy();
+        System.out.println(st1.getName());
     }
 }

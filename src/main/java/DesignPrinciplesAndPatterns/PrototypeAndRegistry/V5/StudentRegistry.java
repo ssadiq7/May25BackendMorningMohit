@@ -1,23 +1,23 @@
-package DesignPrinciplesAndPatterns.PrototypeAndRegistry.V4;
+package DesignPrinciplesAndPatterns.PrototypeAndRegistry.V5;
 
-import java.util.Map;
 import java.util.HashMap;
+import java.util.Map;
 
 public class StudentRegistry { // We can make is more generic by using generics here
-    // This is a data storgage for student templates
+    // This is a data storage for student templates
     // And for this we can use a Map or a List
     // "DataScience" => template
     // "Academy" => template
     // "DevOps" => template
     // "Software" => template
 
-    private Map<String, Student> students = new HashMap<>();
+    private Map<StudentType, Student> students = new HashMap<>();
 
-//    public void add(String key, Student student) {
-//        students.put(key, student);
-//    }
+    public void add(StudentType key, Student student) {
+        students.put(key, student);
+    }
 
-    public Student get(String key) {
+    public Student get(StudentType key) {
 //        Student student = students.get(key);
 //        if (student != null) {
 //            return student.copy(); // Return a copy of the student template
@@ -80,10 +80,10 @@ public class StudentRegistry { // We can make is more generic by using generics 
         softwareStudent.setCostOfProgram(14000);
 //        add("Software", softwareStudent);
 
-        students.put("DataScienceStudent", dataScienceStudent);
-        students.put("AcademyStudent", academyStudent);
-        students.put("DevOpsStudent", devopsStudent);
-        students.put("SoftwareStudent", softwareStudent);
+        students.put(StudentType.DATASCIENCE, dataScienceStudent);
+        students.put(StudentType.ACADEMIC, academyStudent);
+        students.put(StudentType.DEVOPS, devopsStudent);
+        students.put(StudentType.SOFTWARE, softwareStudent);
 
         // We have now created a registry of student templates
         // Now we can use this registry to create new students based on these templates

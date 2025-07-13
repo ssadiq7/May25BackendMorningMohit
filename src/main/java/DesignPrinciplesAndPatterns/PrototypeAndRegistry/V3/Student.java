@@ -1,6 +1,8 @@
-package DesignPrinciplesAndPatterns.PrototypeAndRegistry.V2;
+package DesignPrinciplesAndPatterns.PrototypeAndRegistry.V3;
 
-public class Student {
+import java.io.Serializable;
+
+public class Student implements Prototype<Student> {
     private int id;
     private String name;
     private double psp;
@@ -23,6 +25,7 @@ public class Student {
     // We start having copy methods for each subclass
     // Control the flow of copying objects
     // It can use the original copy constructor
+    @Override
     public Student copy() {
         return new Student(this);
     }

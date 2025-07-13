@@ -1,6 +1,4 @@
-package DesignPrinciplesAndPatterns.PrototypeAndRegistry.V3;
-
-import java.io.Serializable;
+package DesignPrinciplesAndPatterns.PrototypeAndRegistry.V4;
 
 public class IntelligentStudent extends Student {
     private int iq;

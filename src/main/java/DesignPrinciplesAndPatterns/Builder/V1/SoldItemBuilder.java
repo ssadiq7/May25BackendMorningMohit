@@ -1,6 +1,6 @@
-package DesignPrinciplesAndPatterns.Builder.V0;
+package DesignPrinciplesAndPatterns.Builder.V1;
 
-public class Builder {
+public class SoldItemBuilder {
     // The Builder class is used to create instances of SoldItem.
     // It provides a fluent interface for setting properties and building the object.
 
@@ -14,41 +14,41 @@ public class Builder {
     private String shippingMethod;
     private String paymentMethod;
 
-    public Builder() {
+    public SoldItemBuilder() {
         // Default constructor
     }
 
     // Setters for the properties
-    public void setItem(int item) {
-        this.item = item;
-    }
-    public void setQuantity(int quantity) {
-        if(quantity < 5) {
-            throw new IllegalArgumentException("Quantity must be at least 5.");
-        }
-        this.quantity = quantity;
-    }
-    public void setPrice(double price) {
-        this.price = price;
-    }
-    public void setDescription(String description) {
-        this.description = description;
-    }
-    public void setSeller(String seller) {
-        this.seller = seller;
-    }
-    public void setIsPrime(boolean isPrime) {
-        this.isPrime = isPrime;
-    }
-    public void setDiscount(float discount) {
-        this.discount = discount;
-    }
-    public void setShippingMethod(String shippingMethod) {
-        this.shippingMethod = shippingMethod;
-    }
-    public void setPaymentMethod(String paymentMethod) {
-        this.paymentMethod = paymentMethod;
-    }
+//    public void setItem(int item) {
+//        this.item = item;
+//    }
+//    public void setQuantity(int quantity) {
+//        if(quantity < 5) {
+//            throw new IllegalArgumentException("Quantity must be at least 5.");
+//        }
+//        this.quantity = quantity;
+//    }
+//    public void setPrice(double price) {
+//        this.price = price;
+//    }
+//    public void setDescription(String description) {
+//        this.description = description;
+//    }
+//    public void setSeller(String seller) {
+//        this.seller = seller;
+//    }
+//    public void setIsPrime(boolean isPrime) {
+//        this.isPrime = isPrime;
+//    }
+//    public void setDiscount(float discount) {
+//        this.discount = discount;
+//    }
+//    public void setShippingMethod(String shippingMethod) {
+//        this.shippingMethod = shippingMethod;
+//    }
+//    public void setPaymentMethod(String paymentMethod) {
+//        this.paymentMethod = paymentMethod;
+//    }
 
     // Getters for the properties
     public int getItem() {
@@ -81,53 +81,44 @@ public class Builder {
 
 
 
-//    public Builder setItem(int item) {
-//        this.item = item;
-//        return this;
-//    }
-//
-//    public Builder setQuantity(int quantity) {
-//        this.quantity = quantity;
-//        return this;
-//    }
-//
-//    public Builder setPrice(double price) {
-//        this.price = price;
-//        return this;
-//    }
-//
-//    public Builder setDescription(String description) {
-//        this.description = description;
-//        return this;
-//    }
-//
-//    public Builder setSeller(String seller) {
-//        this.seller = seller;
-//        return this;
-//    }
-//
-//    public Builder setIsPrime(boolean isPrime) {
-//        this.isPrime = isPrime;
-//        return this;
-//    }
-//
-//    public Builder setDiscount(float discount) {
-//        this.discount = discount;
-//        return this;
-//    }
-//
-//    public Builder setShippingMethod(String shippingMethod) {
-//        this.shippingMethod = shippingMethod;
-//        return this;
-//    }
-//
-//    public Builder setPaymentMethod(String paymentMethod) {
-//        this.paymentMethod = paymentMethod;
-//        return this;
-//    }
+    public void setItem(int item) {
+        this.item = item;
+    }
 
-//    public SoldItem build() {
-//        return new SoldItem(item, quantity, price, description, seller, isPrime, discount, shippingMethod, paymentMethod);
-//    }
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setSeller(String seller) {
+        this.seller = seller;
+    }
+
+    public void setIsPrime(boolean isPrime) {
+        this.isPrime = isPrime;
+    }
+
+    public void setDiscount(float discount) {
+        this.discount = discount;
+    }
+
+    public void setShippingMethod(String shippingMethod) {
+        this.shippingMethod = shippingMethod;
+    }
+
+    public void setPaymentMethod(String paymentMethod) {
+        this.paymentMethod = paymentMethod;
+    }
+
+    public SoldItem build() {
+        return new SoldItem(item, quantity, price, description, seller, isPrime, discount, shippingMethod, paymentMethod);
+    }
 
 }

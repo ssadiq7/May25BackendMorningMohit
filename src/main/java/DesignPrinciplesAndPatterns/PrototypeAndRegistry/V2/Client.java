@@ -1,4 +1,4 @@
-package DesignPrinciplesAndPatterns.PrototypeAndRegistry.V1;
+package DesignPrinciplesAndPatterns.PrototypeAndRegistry.V2;
 
 public class Client {
     public static void main(String[] args) {
@@ -15,5 +15,13 @@ public class Client {
         System.out.println(st1.getName());
         st1 = is.copy();
         System.out.println(st1.getName());
+
+        // We can call the copy method on both objects without knowing their specific types.
+        StudentUtility.createCopy(st);
+        StudentUtility.createCopy(is);
+
+        // Just to make sure all the classes have the same copy method
+        // We can have an interface or an abstract class that defines the copy method
+        // and then implement it in all classes that need to support copying.
     }
 }

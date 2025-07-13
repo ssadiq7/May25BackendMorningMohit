@@ -1,4 +1,4 @@
-package DesignPrinciplesAndPatterns.Builder.V0;
+package DesignPrinciplesAndPatterns.Builder.V1;
 
 import java.util.HashMap;
 
@@ -59,17 +59,17 @@ public class SoldItem {
         }
     }
 
-    public SoldItem(Builder builder) {
+    public SoldItem(SoldItemBuilder soldItemBuilder) {
         // Validations can be done here also if needed
-        this.item = builder.getItem();
-        this.quantity = builder.getQuantity();
-        this.price = builder.getPrice();
-        this.description = builder.getDescription();
-        this.seller = builder.getSeller();
-        this.isPrime = builder.isPrime();
-        this.discount = builder.getDiscount();
-        this.shippingMethod = builder.getShippingMethod();
-        this.paymentMethod = builder.getPaymentMethod();
+        this.item = soldItemBuilder.getItem();
+        this.quantity = soldItemBuilder.getQuantity();
+        this.price = soldItemBuilder.getPrice();
+        this.description = soldItemBuilder.getDescription();
+        this.seller = soldItemBuilder.getSeller();
+        this.isPrime = soldItemBuilder.isPrime();
+        this.discount = soldItemBuilder.getDiscount();
+        this.shippingMethod = soldItemBuilder.getShippingMethod();
+        this.paymentMethod = soldItemBuilder.getPaymentMethod();
     }
 
     // This is not an efficient builder pattern implementation.
@@ -108,6 +108,11 @@ public class SoldItem {
     }
     public void setIsPrime(boolean isPrime) {
         this.isPrime = isPrime;
+    }
+
+    // Original class is taking the responsibility of providing the builder.
+    public static SoldItemBuilder getBuilder() {
+        return new SoldItemBuilder();
     }
 
 }

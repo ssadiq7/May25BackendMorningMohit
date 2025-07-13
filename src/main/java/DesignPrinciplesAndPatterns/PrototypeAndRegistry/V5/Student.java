@@ -1,4 +1,4 @@
-package DesignPrinciplesAndPatterns.PrototypeAndRegistry.V4;
+package DesignPrinciplesAndPatterns.PrototypeAndRegistry.V5;
 
 public class Student implements Prototype<Student> {
     private int id;

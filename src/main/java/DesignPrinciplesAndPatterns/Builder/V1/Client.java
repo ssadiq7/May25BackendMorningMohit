@@ -1,4 +1,4 @@
-package DesignPrinciplesAndPatterns.Builder.V0;
+package DesignPrinciplesAndPatterns.Builder.V1;
 
 import java.util.HashMap;
 
@@ -80,7 +80,7 @@ public class Client {
         System.out.println("Payment Method: " + properties.get("paymentMethod"));
 
         // Use the map to call the constructor of the SoldItem class
-        SoldItem soldItem = new SoldItem(properties);
+//        SoldItem soldItem = new SoldItem(properties);
 
         // Two big issues with this approach:
         // The name of the fields in the map must match the names of the fields in the SoldItem class.
@@ -94,17 +94,17 @@ public class Client {
         // We can create another custom class to represent the properties of the SoldItem object and use that class to set the properties.
         // This class can have methods to set the properties and a method to build the SoldItem object.
         // Using the Builder class to create a SoldItem object
-        Builder builder = new Builder();
-        builder.setItem(101);
-        builder.setQuantity(2);
-        builder.setPrice(29.99);
-        builder.setDescription("Wireless Mouse");
-        builder.setSeller("TechStore");
-        builder.setIsPrime(true);
-        builder.setDiscount(0.1f); // 10% discount
-        builder.setShippingMethod("Express");
-        builder.setPaymentMethod("Credit Card");
-        SoldItem soldItem1 = new SoldItem(builder);
+//        SoldItemBuilder soldItemBuilder = new SoldItemBuilder();
+//        soldItemBuilder.setItem(101);
+//        soldItemBuilder.setQuantity(2);
+//        soldItemBuilder.setPrice(29.99);
+//        soldItemBuilder.setDescription("Wireless Mouse");
+//        soldItemBuilder.setSeller("TechStore");
+//        soldItemBuilder.setIsPrime(true);
+//        soldItemBuilder.setDiscount(0.1f); // 10% discount
+//        soldItemBuilder.setShippingMethod("Express");
+//        soldItemBuilder.setPaymentMethod("Credit Card");
+//        SoldItem soldItem1 = new SoldItem(soldItemBuilder);
         // If new fields are added, we only need to add a new method in the Builder class.
         // If we want to change the order of fields, we can do that in the Builder class without changing the SoldItem class.
         // The validation can be done in the Builder class, ensuring that the SoldItem object is created in a consistent state.
@@ -112,21 +112,21 @@ public class Client {
         // After the builder object is used, the garbage collector will clean it up, so we don't need to worry about memory leaks.
         // Builder objects only responsibility is to take the input, consume the data and create the SoldItem object.
 
+        // Real builder pattern implementation would look like this:
+//        SoldItemBuilder builder = new SoldItemBuilder();
+        SoldItemBuilder soldItemBuilder = SoldItem.getBuilder();
+        soldItemBuilder.setItem(101);
+        soldItemBuilder.setQuantity(5);
+        soldItemBuilder.setPrice(29.99);
+        soldItemBuilder.setDescription("Wireless Mouse");
+        soldItemBuilder.setSeller("TechStore");
+        soldItemBuilder.setIsPrime(true);
+        soldItemBuilder.setDiscount(0.1f); // 10% discount
+        soldItemBuilder.setShippingMethod("Express");
+        soldItemBuilder.setPaymentMethod("Credit Card");
 
-
-
-
-//        SoldItem soldItemFromBuilder = builder
-//                .setItem(101)
-//                .setQuantity(2)
-//                .setPrice(29.99)
-//                .setDescription("Wireless Mouse")
-//                .setSeller("TechStore")
-//                .setIsPrime(true)
-//                .setDiscount(0.1f) // 10% discount
-//                .setShippingMethod("Express")
-//                .setPaymentMethod("Credit Card")
-//                .build();
+        SoldItem soldItem2 = new SoldItem(soldItemBuilder);
+        // Instead of the client creating the builder object directly, original class is taking the responsibility of providing the builder.
 
     }
 }

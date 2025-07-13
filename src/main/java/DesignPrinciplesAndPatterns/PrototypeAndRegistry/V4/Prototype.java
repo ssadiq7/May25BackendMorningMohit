@@ -1,4 +1,4 @@
-package DesignPrinciplesAndPatterns.PrototypeAndRegistry.V3;
+package DesignPrinciplesAndPatterns.PrototypeAndRegistry.V4;
 
 public interface Prototype<T> {
     /**

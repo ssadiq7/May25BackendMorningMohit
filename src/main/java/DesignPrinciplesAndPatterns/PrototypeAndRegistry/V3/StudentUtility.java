@@ -1,4 +1,4 @@
-package DesignPrinciplesAndPatterns.PrototypeAndRegistry.V2;
+package DesignPrinciplesAndPatterns.PrototypeAndRegistry.V3;
 
 public class StudentUtility {
     public static void createCopy(Student student) {
