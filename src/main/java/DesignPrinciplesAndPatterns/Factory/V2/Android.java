@@ -1,12 +1,18 @@
-package DesignPrinciplesAndPatterns.Factory.V1;
+package DesignPrinciplesAndPatterns.Factory.V2;
 
-import DesignPrinciplesAndPatterns.Factory.V1.components.Button.AndroidButton;
-import DesignPrinciplesAndPatterns.Factory.V1.components.Button.Button;
+import DesignPrinciplesAndPatterns.Factory.V2.components.Button.AndroidButton;
+import DesignPrinciplesAndPatterns.Factory.V2.components.Button.Button;
 
 public class Android extends Platform {
 
+//    @Override
+//    public Button createButton() {
+//        return new AndroidButton();
+//    }
+
+
     @Override
-    public Button createButton() {
-        return new AndroidButton();
+    public UIComponentFactory createUIComponentFactory() {
+        return new AndroidUIComponentFactory();
     }
 }

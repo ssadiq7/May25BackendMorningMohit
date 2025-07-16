@@ -1,4 +1,4 @@
-package DesignPrinciplesAndPatterns.Factory.V1.components.Dropdown;
+package DesignPrinciplesAndPatterns.Factory.V2.components.Dropdown;
 
 public class AndroidDropdown implements Dropdown {
     @Override

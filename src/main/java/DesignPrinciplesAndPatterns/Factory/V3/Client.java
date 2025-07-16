@@ -1,13 +1,26 @@
-package DesignPrinciplesAndPatterns.Factory.V2;
+package DesignPrinciplesAndPatterns.Factory.V3;
 
-import DesignPrinciplesAndPatterns.Factory.V2.components.Button.Button;
-import DesignPrinciplesAndPatterns.Factory.V2.components.Dropdown.AndroidDropdown;
-import DesignPrinciplesAndPatterns.Factory.V2.components.Dropdown.Dropdown;
-import DesignPrinciplesAndPatterns.Factory.V2.components.Dropdown.IOSDropdown;
+import DesignPrinciplesAndPatterns.Factory.V3.components.Button.Button;
+import DesignPrinciplesAndPatterns.Factory.V3.components.Dropdown.Dropdown;
+
+import java.util.Scanner;
 
 public class Client {
+    private static Scanner scanner = new Scanner(System.in);
     public static void main(String[] args) {
-        Platform p = new IOS();
+        // Let's suppose User is giving me just String input then which Platform to use.
+        String platformName = scanner.nextLine();
+        Platform p = PlatformFactory.getPlatformByName(platformName);
+//        if(platformName.equals("Android")) {
+//            p = new Android();
+//        }
+//        else if(platformName.equals("IOS")) {
+//            p = new IOS();
+//        }
+        // We can create a separate Factory class called PlatformFactory
+        // and move the above logic there
+
+
         // Based on Platform, we first create the factory
         UIComponentFactory componentFactory = p.createUIComponentFactory();
         // And then, factory will help me to create the button

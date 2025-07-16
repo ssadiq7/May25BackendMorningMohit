@@ -1,4 +1,4 @@
-package DesignPrinciplesAndPatterns.Factory;
+package DesignPrinciplesAndPatterns.Factory.V0;
 
 public abstract class Platform {
     public void setRefreshRate() {

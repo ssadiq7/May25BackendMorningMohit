@@ -1,11 +1,15 @@
-package DesignPrinciplesAndPatterns.Factory.V1;
+package DesignPrinciplesAndPatterns.Factory.V2;
 
-import DesignPrinciplesAndPatterns.Factory.V1.components.Button.Button;
-import DesignPrinciplesAndPatterns.Factory.V1.components.Button.IOSButton;
+import DesignPrinciplesAndPatterns.Factory.V2.components.Button.Button;
+import DesignPrinciplesAndPatterns.Factory.V2.components.Button.IOSButton;
 
 public class IOS extends Platform {
+//    @Override
+//    public Button createButton() {
+//        return new IOSButton();
+//    }
     @Override
-    public Button createButton() {
-        return new IOSButton();
+    public UIComponentFactory createUIComponentFactory() {
+        return new IOSUIComponentFactory();
     }
 }

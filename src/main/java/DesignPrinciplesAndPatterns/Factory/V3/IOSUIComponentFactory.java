@@ -1,13 +1,11 @@
-package DesignPrinciplesAndPatterns.Factory.V2;
+package DesignPrinciplesAndPatterns.Factory.V3;
 
-import DesignPrinciplesAndPatterns.Factory.V2.components.Button.AndroidButton;
-import DesignPrinciplesAndPatterns.Factory.V2.components.Button.Button;
-import DesignPrinciplesAndPatterns.Factory.V2.components.Button.IOSButton;
-import DesignPrinciplesAndPatterns.Factory.V2.components.Dropdown.AndroidDropdown;
-import DesignPrinciplesAndPatterns.Factory.V2.components.Dropdown.Dropdown;
-import DesignPrinciplesAndPatterns.Factory.V2.components.Dropdown.IOSDropdown;
+import DesignPrinciplesAndPatterns.Factory.V3.components.Button.Button;
+import DesignPrinciplesAndPatterns.Factory.V3.components.Button.IOSButton;
+import DesignPrinciplesAndPatterns.Factory.V3.components.Dropdown.Dropdown;
+import DesignPrinciplesAndPatterns.Factory.V3.components.Dropdown.IOSDropdown;
 
-public class IOSUIComponentFactory implements  UIComponentFactory {
+public class IOSUIComponentFactory implements UIComponentFactory {
     @Override
     public Button createButton() {
         return new IOSButton();

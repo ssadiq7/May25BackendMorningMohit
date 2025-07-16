@@ -1,7 +1,4 @@
-package DesignPrinciplesAndPatterns.Factory.V2;
-
-import DesignPrinciplesAndPatterns.Factory.V2.components.Button.AndroidButton;
-import DesignPrinciplesAndPatterns.Factory.V2.components.Button.Button;
+package DesignPrinciplesAndPatterns.Factory.V3;
 
 public class Android extends Platform {
 

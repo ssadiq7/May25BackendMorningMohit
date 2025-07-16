@@ -1,11 +1,11 @@
-package DesignPrinciplesAndPatterns.Factory.V0;
+package DesignPrinciplesAndPatterns.Factory.V1;
 
-import DesignPrinciplesAndPatterns.Factory.V0.components.Button.AndroidButton;
-import DesignPrinciplesAndPatterns.Factory.V0.components.Button.Button;
-import DesignPrinciplesAndPatterns.Factory.V0.components.Button.IOSButton;
-import DesignPrinciplesAndPatterns.Factory.V0.components.Dropdown.AndroidDropdown;
-import DesignPrinciplesAndPatterns.Factory.V0.components.Dropdown.Dropdown;
-import DesignPrinciplesAndPatterns.Factory.V0.components.Dropdown.IOSDropdown;
+import DesignPrinciplesAndPatterns.Factory.V1.components.Button.AndroidButton;
+import DesignPrinciplesAndPatterns.Factory.V1.components.Button.Button;
+import DesignPrinciplesAndPatterns.Factory.V1.components.Button.IOSButton;
+import DesignPrinciplesAndPatterns.Factory.V1.components.Dropdown.AndroidDropdown;
+import DesignPrinciplesAndPatterns.Factory.V1.components.Dropdown.Dropdown;
+import DesignPrinciplesAndPatterns.Factory.V1.components.Dropdown.IOSDropdown;
 
 public class Client {
     public static void main(String[] args) {
@@ -13,13 +13,19 @@ public class Client {
         // Based on the platform, we want to create new Buttons
         // This is a violation of the Open/Closed Principle
         // This is in very layman terms, we will go with an if else statement
-        Button button = null;
-        if(p instanceof Android) {
-            button = new AndroidButton();
-        }
-        else if(p instanceof IOS) {
-            button = new IOSButton();
-        }
+//        Button button = null;
+//        if(p instanceof Android) {
+//            button = new AndroidButton();
+//        }
+//        else if(p instanceof IOS) {
+//            button = new IOSButton();
+//        }
+
+        Button button = p.createButton();
+        // If it is Android, it will create AndroidButton
+        // If it is IOS, it will create IOSButton
+
+        // Factory V1: Using Simple Factory Method Pattern
 
         button.click();
 

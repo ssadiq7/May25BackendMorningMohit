@@ -1,10 +1,9 @@
-package DesignPrinciplesAndPatterns.Factory.V2;
+package DesignPrinciplesAndPatterns.Factory.V3;
 
-import DesignPrinciplesAndPatterns.Factory.V2.components.Button.AndroidButton;
-import DesignPrinciplesAndPatterns.Factory.V2.components.Button.Button;
-import DesignPrinciplesAndPatterns.Factory.V2.components.Button.IOSButton;
-import DesignPrinciplesAndPatterns.Factory.V2.components.Dropdown.AndroidDropdown;
-import DesignPrinciplesAndPatterns.Factory.V2.components.Dropdown.Dropdown;
+import DesignPrinciplesAndPatterns.Factory.V3.components.Button.AndroidButton;
+import DesignPrinciplesAndPatterns.Factory.V3.components.Button.Button;
+import DesignPrinciplesAndPatterns.Factory.V3.components.Dropdown.AndroidDropdown;
+import DesignPrinciplesAndPatterns.Factory.V3.components.Dropdown.Dropdown;
 
 public class AndroidUIComponentFactory implements UIComponentFactory {
     @Override

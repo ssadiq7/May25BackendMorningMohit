@@ -1,7 +1,4 @@
-package DesignPrinciplesAndPatterns.Factory.V2;
-
-import DesignPrinciplesAndPatterns.Factory.V2.components.Dropdown.Dropdown;
-import DesignPrinciplesAndPatterns.Factory.V2.components.Button.Button;
+package DesignPrinciplesAndPatterns.Factory.V3;
 
 public abstract class Platform {
     public void setRefreshRate() {

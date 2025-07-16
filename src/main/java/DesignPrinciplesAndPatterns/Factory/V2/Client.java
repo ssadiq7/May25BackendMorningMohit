@@ -1,15 +1,17 @@
-package DesignPrinciplesAndPatterns.Factory.V1;
+package DesignPrinciplesAndPatterns.Factory.V2;
 
-import DesignPrinciplesAndPatterns.Factory.V1.components.Button.AndroidButton;
-import DesignPrinciplesAndPatterns.Factory.V1.components.Button.Button;
-import DesignPrinciplesAndPatterns.Factory.V1.components.Button.IOSButton;
-import DesignPrinciplesAndPatterns.Factory.V1.components.Dropdown.AndroidDropdown;
-import DesignPrinciplesAndPatterns.Factory.V1.components.Dropdown.Dropdown;
-import DesignPrinciplesAndPatterns.Factory.V1.components.Dropdown.IOSDropdown;
+import DesignPrinciplesAndPatterns.Factory.V2.components.Button.Button;
+import DesignPrinciplesAndPatterns.Factory.V2.components.Dropdown.AndroidDropdown;
+import DesignPrinciplesAndPatterns.Factory.V2.components.Dropdown.Dropdown;
+import DesignPrinciplesAndPatterns.Factory.V2.components.Dropdown.IOSDropdown;
 
 public class Client {
     public static void main(String[] args) {
-        Platform p = new Android();
+        Platform p = new IOS();
+        // Based on Platform, we first create the factory
+        UIComponentFactory componentFactory = p.createUIComponentFactory();
+        // And then, factory will help me to create the button
+
         // Based on the platform, we want to create new Buttons
         // This is a violation of the Open/Closed Principle
         // This is in very layman terms, we will go with an if else statement
@@ -21,7 +23,7 @@ public class Client {
 //            button = new IOSButton();
 //        }
 
-        Button button = p.createButton();
+        Button button = componentFactory.createButton();
         // If it is Android, it will create AndroidButton
         // If it is IOS, it will create IOSButton
 
@@ -29,13 +31,14 @@ public class Client {
 
         button.click();
 
-        Dropdown dropdown = null;
-        if(p instanceof Android) {
-            dropdown = new AndroidDropdown();
-        }
-        else if(p instanceof IOS) {
-            dropdown = new IOSDropdown();
-        }
+        Dropdown dropdown = componentFactory.createDropdown();
+//        Dropdown dropdown = null;
+//        if(p instanceof Android) {
+//            dropdown = new AndroidDropdown();
+//        }
+//        else if(p instanceof IOS) {
+//            dropdown = new IOSDropdown();
+//        }
 
         dropdown.showOptions();
 
