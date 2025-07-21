@@ -1,4 +1,4 @@
-package DesignPrinciplesAndPatterns.Decorator;
+package DesignPrinciplesAndPatterns.Decorator.V0;
 
 public class Decaf extends Beverage {
     @Override

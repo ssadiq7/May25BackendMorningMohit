@@ -1,4 +1,6 @@
-package DesignPrinciplesAndPatterns.Decorator.V1;
+package DesignPrinciplesAndPatterns.Decorator.V1.Beverages;
+
+import DesignPrinciplesAndPatterns.Decorator.V1.Beverage;
 
 public class HouseBlend extends Beverage {
     @Override

@@ -1,4 +1,4 @@
-package DesignPrinciplesAndPatterns.Decorator;
+package DesignPrinciplesAndPatterns.Decorator.V0;
 
 public class HouseBlend extends Beverage {
     @Override

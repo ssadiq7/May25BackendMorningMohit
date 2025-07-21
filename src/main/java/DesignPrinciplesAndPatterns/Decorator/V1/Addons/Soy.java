@@ -1,4 +1,7 @@
-package DesignPrinciplesAndPatterns.Decorator.V1;
+package DesignPrinciplesAndPatterns.Decorator.V1.Addons;
+
+import DesignPrinciplesAndPatterns.Decorator.V1.Addon;
+import DesignPrinciplesAndPatterns.Decorator.V1.Beverage;
 
 public class Soy extends Addon {
     public Soy(Beverage beverage) {
