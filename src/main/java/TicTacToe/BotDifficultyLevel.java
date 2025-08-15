@@ -1,5 +1,5 @@
 package TicTacToe;
 
-public enum BodDifficultyLevel {
+public enum BotDifficultyLevel {
     EASY, MEDIUM, HARD
 }
