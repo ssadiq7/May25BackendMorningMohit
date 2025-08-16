@@ -1,6 +1,11 @@
 package TicTacToe;
 
+import java.util.Scanner;
+
 public class GameClient {
+
+    public static Scanner scanner = new Scanner(System.in);
+
     public static void main(String[] args) {
 
         System.out.println("Welcome to Tic Tac Toe!");
@@ -28,9 +33,21 @@ public class GameClient {
         // 3. Keep on playing the game until the game is in IN_PROGRESS state
         while(gameController.getGameState(game).equals(GameState.IN_PROGRESS)) {
             // 3.1. Display the board
-            gameController.display(game);
+//            gameController.display(game);
             // 3.2. Ask the current player to make a move
             gameController.makeMove(game);
+            gameController.display(game); // Display the board after the move
+
+            // Support for undo functionality
+            System.out.println("Do you want to undo the last move? (yes/no)");
+            String undoResponse = scanner.nextLine().trim().toLowerCase();
+            if (undoResponse.equals("yes")) {
+                gameController.undo(game);
+                System.out.println("Last move undone. Current board state:");
+                gameController.display(game); // Display the board after undoing the move
+            } else if (!undoResponse.equals("no")) {
+                System.out.println("Invalid response. Please type 'yes' or 'no'.");
+            }
         }
         // 4. Check the winner / draw state and announce the result
         if(gameController.getGameState(game).equals(GameState.SUCCESS)) {
@@ -68,3 +85,23 @@ public class GameClient {
     // Check if the move results in a win or draw (using all selected winning strategies)
     // Assign the winner
     // Change the game state to SUCCESS or DRAW
+
+
+
+// Summary:
+// Requirements
+// Class diagram
+// Code all the classes (Game, Board, Cell, Player, Move, GameController, WinningStrategy, etc.)
+// GameClient
+
+
+
+// 1. We have implemented the makeMove method in the Game class to allow players to make moves.
+// 2. We have implemented the undo method to allow players to undo their last move.
+// 3. We have implemented the display method to show the current state of the board after each move.
+// 4. We have implemented the logic to check for a winner or a draw after each move.
+// 5. We have added a simple user interface to interact with the game, allowing players to make moves and undo them if needed.
+// 6. We have implemented a basic game loop that continues until the game is in a terminal state (win or draw).
+// 7. We have added a prompt to ask players if they want to undo their last move, and handle the response accordingly.
+// 8. We have displayed the final result of the game, announcing the winner or if it was a draw.
+// 9. We have ensured that the game can be played multiple times by resetting the game state and starting over if players choose to play again.

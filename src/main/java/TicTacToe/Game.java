@@ -99,6 +99,33 @@ public class Game {
         }
     }
 
+    public void undo() {
+        if (moves.isEmpty()) {
+            System.out.println("No moves to undo.");
+            return;
+        }
+
+        Move lastMove = moves.remove(moves.size() - 1);
+        Cell lastCell = lastMove.getCell();
+        lastCell.setCellState(CellState.EMPTY);
+        lastCell.setPlayer(null); // Clear the player from the cell
+
+        // Switch back to the previous player
+        nextPlayerIndex = (nextPlayerIndex - 1 + players.size()) % players.size();
+
+        moves.remove(lastMove);
+        // Notify the winning strategies to handle the undo
+        for (WinningStrategy strategy : winningStrategies) {
+            strategy.handleUndo(board, lastMove);
+        }
+
+        // Reset the game state if the game was successful or drawn
+        if (gameState == GameState.SUCCESS || gameState == GameState.DRAW) {
+            gameState = GameState.IN_PROGRESS;
+            setWinner(null); // Clear the winner
+        }
+    }
+
     public Board getBoard() {
         return board;
     }

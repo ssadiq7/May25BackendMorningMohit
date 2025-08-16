@@ -1,5 +1,6 @@
 package TicTacToe;
 
+import TicTacToe.strategies.RowWinningStrategy;
 import TicTacToe.strategies.WinningStrategy;
 
 import java.util.ArrayList;
@@ -25,6 +26,8 @@ public class GameController {
         // Do you want column winning strategy - Yes or No
         // Do you want diagonal winning strategy - Yes or No
         List<WinningStrategy> winningStrategies = new ArrayList<>();
+        // For the time being, we will just add the row winning strategy
+        winningStrategies.add(new RowWinningStrategy());
 
         // Create the game object
         return new Game(dimension, players, winningStrategies);
@@ -67,9 +70,20 @@ public class GameController {
     private List<Player> getPlayers(int dimension) {
         // Logic to get player details from user input
         System.out.println("Let's add the players now: ");
-        // Modify this function to take Bot as well
         List<Player> players = new ArrayList<>();
-        for (int i = 0; i < dimension - 1; i++) {
+        // Modify this function to take Bot as well
+        System.out.println("Do you want to add a Bot player? (yes/no)");
+        String addBot = scanner.next();
+
+        int countOfPlayers = dimension - 1; // One player will be a Bot, so we need to add dimension - 1 players
+
+        if (addBot.equalsIgnoreCase("yes")) {
+            Player botPlayer = new Bot(0, "BOTTY", PlayerType.BOT, new Symbol("B"), BotDifficultyLevel.EASY);
+            players.add(botPlayer);
+            countOfPlayers--; // Reduce the count of players as we have added a Bot
+        }
+//        List<Player> players = new ArrayList<>();
+        for (int i = 0; i < countOfPlayers; i++) {
 //            System.out.println("Add Player details: Name <space> Symbol");
 //            String details = scanner.nextLine();
 //            String[] detailsArray = details.split(" ");
@@ -82,6 +96,12 @@ public class GameController {
             players.add(player);
         }
         return players;
+    }
+
+    public void undo(Game game) {
+        // Logic to undo the last move in the game
+        // This should include checking if there is a move to undo and updating the board accordingly
+        game.undo();
     }
 
 }
