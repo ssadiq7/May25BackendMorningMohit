@@ -76,7 +76,7 @@ public class Game {
     public void makeMove() {
         // First of all, it should identify who's turn it is
         Player currentPlayer = players.get(nextPlayerIndex);
-        Move move = currentPlayer.makeMove();
+        Move move = currentPlayer.makeMove(board);
 
         // Validate the move
         try {

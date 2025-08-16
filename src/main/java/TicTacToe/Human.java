@@ -14,7 +14,7 @@ public class Human extends Player {
     }
 
     @Override
-    public Move makeMove() {
+    public Move makeMove(Board board) {
         // Making a move means taking the input from the user
         System.out.println("Hey! " + getName() + ", it's your turn!. Please make the move.");
         System.out.println("Enter the row in which you want to make the move (0-indexed):");

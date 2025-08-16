@@ -79,6 +79,7 @@ public class GameController {
             System.out.println("Please enter the Player symbol: ");
             String symbol = scanner.next();
             Player player = new Human(i, name, PlayerType.HUMAN, new Symbol(symbol));
+            players.add(player);
         }
         return players;
     }
