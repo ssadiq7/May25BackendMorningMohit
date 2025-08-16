@@ -42,3 +42,29 @@ public class GameClient {
         }
     }
 }
+
+// Until last commit, we have implemented the following:
+// Set up the flow of the game
+// Implemented the display
+
+// Today we will implement the following:
+// Implementing the makeMove method to allow players to make moves
+
+// Human
+    // Get the input from the player
+    // Validate the input
+    // Update the board with the move: Mark the cell with the player's symbol + state
+    // Update the turn / Switch to the next player
+    // Add moves to the history of moves for undo functionality
+    // Check if the move results in a win or draw (using all selected winning strategies)
+        // Assign the winner
+        // Change the game state to SUCCESS or DRAW
+
+// Bot
+    // Some algorithm will suggest the move
+    // Update the board with the move: Mark the cell with the player's symbol + state
+    // Update the turn / Switch to the next player
+    // Add moves to the history of moves for undo functionality
+    // Check if the move results in a win or draw (using all selected winning strategies)
+    // Assign the winner
+    // Change the game state to SUCCESS or DRAW

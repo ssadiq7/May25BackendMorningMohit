@@ -46,6 +46,8 @@ public class GameController {
     public void makeMove(Game game) {
         // To-do: Implement the logic to make a move in the game
         // This should include checking if the move is valid, updating the board, and checking for a winner
+        // This will eventually call the makeMove method on the Game
+        game.makeMove();
     }
 
     public String getWinner(Game game) {
