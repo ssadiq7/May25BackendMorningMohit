@@ -24,6 +24,11 @@ public class Game {
         this.winner = null;
     }
 
+    public void display() {
+        // This will call the display method of the board to show the current state
+        board.display();
+    }
+
     public Board getBoard() {
         return board;
     }

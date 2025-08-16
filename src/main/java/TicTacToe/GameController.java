@@ -39,7 +39,8 @@ public class GameController {
     }
 
     public void display(Game game) {
-        // To-do: Implement the display logic for the game
+        // gameController -> game.display() -> board.display() -> cell.display()
+        game.display();
     }
 
     public void makeMove(Game game) {
@@ -48,8 +49,7 @@ public class GameController {
     }
 
     public String getWinner(Game game) {
-        // To-do: Implement the logic to get the winner of the game
-        return "todo";
+        return game.getWinner().getName();
     }
 
     private int getBoardDimension() {
@@ -68,10 +68,15 @@ public class GameController {
         // Modify this function to take Bot as well
         List<Player> players = new ArrayList<>();
         for (int i = 0; i < dimension - 1; i++) {
-            System.out.println("Add Player details: Name <space> Symbol");
-            String details = scanner.nextLine();
-            String[] detailsArray = details.split(" ");
-            Player player = new Human(i, detailsArray[0], PlayerType.HUMAN, new Symbol(detailsArray[1]));
+//            System.out.println("Add Player details: Name <space> Symbol");
+//            String details = scanner.nextLine();
+//            String[] detailsArray = details.split(" ");
+//            Player player = new Human(i, detailsArray[0], PlayerType.HUMAN, new Symbol(detailsArray[1]));
+            System.out.println("Please enter the Player name: ");
+            String name = scanner.next();
+            System.out.println("Please enter the Player symbol: ");
+            String symbol = scanner.next();
+            Player player = new Human(i, name, PlayerType.HUMAN, new Symbol(symbol));
         }
         return players;
     }

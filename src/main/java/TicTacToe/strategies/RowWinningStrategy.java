@@ -9,3 +9,6 @@ public class RowWinningStrategy implements WinningStrategy {
         return false;
     }
 }
+
+// Maintain a hashmap and every time a player makes a move, check if the row has all the same symbols.
+// If yes, then that player is the winner. If not, then continue the game.
