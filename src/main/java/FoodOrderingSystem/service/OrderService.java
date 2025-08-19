@@ -3,9 +3,14 @@ package FoodOrderingSystem.service;
 import FoodOrderingSystem.dto.OrderItemRequest;
 import FoodOrderingSystem.dto.PlaceOrderRequest;
 import FoodOrderingSystem.dto.PlaceOrderResponse;
+import FoodOrderingSystem.model.MenuItem;
+import FoodOrderingSystem.model.Order;
 import FoodOrderingSystem.model.OrderItem;
+import FoodOrderingSystem.model.Restaurant;
 import FoodOrderingSystem.repository.OrderRepository;
 import FoodOrderingSystem.repository.RestaurantRepository;
+
+import java.util.List;
 
 public class OrderService {
 
@@ -21,10 +26,75 @@ public class OrderService {
     }
 
     public PlaceOrderResponse placeOrder(PlaceOrderRequest request) {
+        // Initialize the order request
+        orderRequest = new PlaceOrderRequest();
 
-        // Paste your code here
-        return null;
+        // Accept an order request with customerName, address, restaurant, and items
+        orderRequest.setCustomerName(request.getCustomerName());
+        orderRequest.setAddress(request.getAddress());
+        orderRequest.setRestaurant(request.getRestaurant());
+        orderRequest.setItems(request.getItems());
 
+        // Validate the restaurant
+        Restaurant restaurant = restaurantRepository.getRestaurantByName(request.getRestaurant());
+        if (restaurant.getName() == null) {
+            return PlaceOrderResponse.failure("Restaurant not found: " + request.getRestaurant());
+        }
+
+        // Validate each item
+        for (OrderItemRequest itemRequest : request.getItems()) {
+            MenuItem menuItem = restaurant.getMenu().stream()
+                    .filter(item -> item.getName().equalsIgnoreCase(itemRequest.getItemName()))
+                    .findFirst()
+                    .orElse(null);
+
+            if (menuItem == null) {
+                return PlaceOrderResponse.failure("Item not found in menu: " + itemRequest.getItemName());
+            }
+
+            if (!menuItem.isAvailable()) {
+                return PlaceOrderResponse.failure("Item '" + itemRequest.getItemName() + "' is currently out of stock.");
+            }
+
+            if (itemRequest.getQuantity() < 1) {
+                return PlaceOrderResponse.failure("Invalid quantity for item: " + itemRequest.getItemName());
+            }
+        }
+
+        // Calculate order details
+            // Total Amount = sum of (price * quantity) for each item
+            // Preparation Time = max(prepTime of all items)
+            // Estimated Delivery Time = preparation time + 10 minutes (buffer)
+        int totalAmount = 0;
+        int maxPrepTime = 0;
+        int estimatedDeliveryTimeMinutes = 0;
+        for (OrderItemRequest itemRequest : request.getItems()) {
+            MenuItem menuItem = restaurant.getMenu().stream()
+                    .filter(item -> item.getName().equalsIgnoreCase(itemRequest.getItemName()))
+                    .findFirst()
+                    .orElse(null);
+            if (menuItem != null) {
+                totalAmount += menuItem.getPrice() * itemRequest.getQuantity();
+                maxPrepTime = Math.max(maxPrepTime, menuItem.getPrepTime());
+            }
+        }
+        estimatedDeliveryTimeMinutes = maxPrepTime + 10; // Adding 10 minutes buffer
+
+
+        // Save the order
+            // Generate a unique orderId (e.g., ORD1234)
+            // Save the order with:
+                // status: PLACED
+                // assignedDeliveryPartner: null (can be assigned later)
+        String orderId = "ORD" + String.format("%04d", orderIdCounter++);
+        OrderItem[] orderItems = request.getItems().stream()
+                .map(item -> new OrderItem(item.getItemName(), item.getQuantity()))
+                .toArray(OrderItem[]::new);
+        // Create the Order object
+        Order order = new Order(orderId, request.getCustomerName(), request.getAddress(), request.getRestaurant(),
+                List.of(orderItems), totalAmount, estimatedDeliveryTimeMinutes, "PLACED", null);
+        orderRepository.save(order);
+        return PlaceOrderResponse.success(orderId, totalAmount, estimatedDeliveryTimeMinutes);
     }
 
     /* Exercise:
