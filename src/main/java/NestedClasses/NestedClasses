@@ -1,0 +1,12 @@
+A class can have another class inside it in Java. These are known as nested classes.
+
+Nested classes are categorized into two main types:
+
+1. Static Nested Classes:
+These are declared with the static keyword. They behave like top-level classes but are nested within another class. They can access static members of the outer class but not non-static members directly.
+
+2. Inner Classes:
+These are non-static nested classes. They have access to all members of the outer class, including private members, and maintain an implicit reference to an instance of the outer class. Inner classes are further divided into:
+* Member Inner Classes: Defined directly within the outer class, like a member variable or method.
+* Local Inner Classes: Defined within a method or scope, and their scope is limited to that block.
+* Anonymous Inner Classes: Classes without a name, typically used for implementing an interface or extending a class on the fly, often used for event handling.
