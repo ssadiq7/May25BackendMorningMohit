@@ -5,7 +5,8 @@ import java.util.concurrent.Executors;
 
 public class Main {
     public static void main(String[] args) {
-        ExecutorService executorService = Executors.newFixedThreadPool(10);
+        ExecutorService executorService = Executors.newFixedThreadPool(10); // Using a pool of only 10 threads
+        // using the same threads for 100 tasks instead of creating 100 threads for 100 tasks
 
         for(int i = 1; i <= 100000; i++) {
             if(i == 80000) {

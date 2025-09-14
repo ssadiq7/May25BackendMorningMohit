@@ -22,6 +22,7 @@ public class Client {
 
         // we don't want to create a new thread for every task
         ExecutorService executorService = Executors.newFixedThreadPool(8);
+//        ExecutorService executorService = Executors.newCachedThreadPool(); // created 58 threads for 100 tasks
         for(int i = 1; i <= 100; i++){
 //            if(i == 80000){
 //                System.out.println();
